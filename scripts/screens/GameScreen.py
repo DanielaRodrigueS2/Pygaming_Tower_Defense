@@ -1,10 +1,14 @@
 import pygame as pg 
 from scripts.screens.Screen import Screen
 
+from scripts.towers.Tower import Tower
+
 class GameScreen(Screen):
 
     def __init__(self, game):
         super().__init__(game)
+        self.ally_tower = Tower(60, 400)
+        self.enemy_tower = Tower(1140, 400)
 
     def update(self):
         pass
@@ -19,4 +23,6 @@ class GameScreen(Screen):
 
         screen.fill((50,100,100))
 
-        
+        self.ally_tower.draw(screen)
+        self.enemy_tower.draw(screen)
+
