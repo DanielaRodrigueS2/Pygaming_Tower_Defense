@@ -1,14 +1,13 @@
 import pygame as pg
 
-class Money(pg.sprite.Sprite):
+class Floor(pg.sprite.Sprite):
 
     def __init__(self):
         pg.sprite.Sprite.__init__(self)
-
-        self.image = pg.Surface((32,32))
-        self.image.fill((255,255,0))
-        self.x = 1150
-        self.y = 40
+        self.image = pg.Surface((1200, 50))
+        self.image.fill((0,0,0))
+        self.x = 600
+        self.y = 475
         self.rect = self.image.get_rect()
         self.rect.center = (self.x, self.y)
 

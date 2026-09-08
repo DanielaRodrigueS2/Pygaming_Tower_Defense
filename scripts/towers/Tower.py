@@ -11,9 +11,13 @@ class Tower(pg.sprite.Sprite):
         self.y = y
         self.rect = self.image.get_rect()
         self.rect.center = (self.x, self.y) 
+        self.money = 0
 
     def update(self):
         pass
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
+
+    def gain_money(self, money):
+        self.money += money
