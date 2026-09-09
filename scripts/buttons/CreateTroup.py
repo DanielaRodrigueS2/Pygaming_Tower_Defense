@@ -4,7 +4,7 @@ class CreateTroup(pg.sprite.Sprite):
 
     def __init__(self, x, y, color):
         pg.sprite.Sprite.__init__(self)
-        self.image = pg.Surface((32,32))
+        self.image = pg.Surface((100,100))
         self.image.fill(color)
         self.x = x
         self.y = y

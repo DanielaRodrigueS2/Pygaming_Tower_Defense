@@ -8,6 +8,9 @@ from scripts.towers.Tower import Tower
 from scripts.utils.Money import Money
 from scripts.utils.Floor import Floor
 
+# buttons
+from scripts.buttons.CreateTroup import CreateTroup
+
 class GameScreen(Screen):
 
     GAIN_MONEY_ALLY = pg.USEREVENT + 1
@@ -30,6 +33,12 @@ class GameScreen(Screen):
         # Utils
         self.money = Money()
         self.floor = Floor()
+
+        #buttons
+        self.troup1 = CreateTroup(80, 600, (200,100,25))
+        self.troup2 = CreateTroup(280, 600, (10,200,2))
+        self.troup3 = CreateTroup(480, 600, (100,20,2))
+        self.troup4 = CreateTroup(680, 600, (100,200,20))
 
     def update(self):
         pass
@@ -61,4 +70,10 @@ class GameScreen(Screen):
         money_text = self.font.render(f'{self.ally_tower.money}', True, (255,255,255))
         money_rect = money_text.get_rect(midright=(self.money.rect.left - 10, self.money.rect.centery))
         screen.blit(money_text, money_rect)
+
+        # Buttons
+        self.troup1.draw(screen)
+        self.troup2.draw(screen)
+        self.troup3.draw(screen)
+        self.troup4.draw(screen)
 
