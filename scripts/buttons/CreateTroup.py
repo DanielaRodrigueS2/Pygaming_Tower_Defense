@@ -11,8 +11,10 @@ class CreateTroup(pg.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (self.x, self.y)
 
-    def update(self):
-        pass
+    def update(self, event):
+        if event.type == pg.MOUSEBUTTONUP:
+            if self.rect.collidepoint(event.pos):
+                print('Clicado', self.x, self.y)
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)

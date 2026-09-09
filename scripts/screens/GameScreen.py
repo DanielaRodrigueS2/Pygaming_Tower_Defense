@@ -35,10 +35,10 @@ class GameScreen(Screen):
         self.floor = Floor()
 
         #buttons
-        self.troup1 = CreateTroup(80, 600, (200,100,25))
-        self.troup2 = CreateTroup(280, 600, (10,200,2))
-        self.troup3 = CreateTroup(480, 600, (100,20,2))
-        self.troup4 = CreateTroup(680, 600, (100,200,20))
+        self.troup_button1 = CreateTroup(80, 600, (200,100,25))
+        self.troup_button2 = CreateTroup(280, 600, (10,200,2))
+        self.troup_button3 = CreateTroup(480, 600, (100,20,2))
+        self.troup_button4 = CreateTroup(680, 600, (100,200,20))
 
     def update(self):
         pass
@@ -50,6 +50,11 @@ class GameScreen(Screen):
 
         if event.type == self.GAIN_MONEY_ENEMY:
             self.enemy_tower.gain_money(10)
+
+        self.troup_button1.update(event)
+        self.troup_button2.update(event)
+        self.troup_button3.update(event)
+        self.troup_button4.update(event)
 
     def check_collisions(self):
         pass
@@ -72,8 +77,8 @@ class GameScreen(Screen):
         screen.blit(money_text, money_rect)
 
         # Buttons
-        self.troup1.draw(screen)
-        self.troup2.draw(screen)
-        self.troup3.draw(screen)
-        self.troup4.draw(screen)
+        self.troup_button1.draw(screen)
+        self.troup_button2.draw(screen)
+        self.troup_button3.draw(screen)
+        self.troup_button4.draw(screen)
 
