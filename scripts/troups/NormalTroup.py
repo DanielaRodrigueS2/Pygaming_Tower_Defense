@@ -13,8 +13,23 @@ class NormalTroup(pg.sprite.Sprite):
         self.life = 100
         self.speed = 5
 
+        self.damage = 10
+
+        self.attack = False
+
     def update(self):
         self.rect.x += self.speed
+
+        if self.life <= 0:
+            self.kill()
+
+        self.receive_damage()
+
+    def attack(self):
+        self.attack = True
+
+    def receive_damage(self, damage):
+        self.life -= damage
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
