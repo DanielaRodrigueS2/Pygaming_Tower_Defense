@@ -11,6 +11,9 @@ from scripts.utils.Floor import Floor
 # buttons
 from scripts.buttons.CreateTroup import CreateTroup
 
+# Troups
+from scripts.troups.NormalTroup import NormalTroup
+
 class GameScreen(Screen):
 
     GAIN_MONEY_ALLY = pg.USEREVENT + 1
@@ -34,14 +37,17 @@ class GameScreen(Screen):
         self.money = Money()
         self.floor = Floor()
 
-        #buttons
+        # buttons
         self.troup_button1 = CreateTroup(80, 600, (200,100,25))
         self.troup_button2 = CreateTroup(280, 600, (10,200,2))
         self.troup_button3 = CreateTroup(480, 600, (100,20,2))
         self.troup_button4 = CreateTroup(680, 600, (100,200,20))
 
+        # Srite Group
+        self.troups = pg.sprite.Group()
+
     def update(self):
-        pass
+        self.troups.update()
 
     def handle_events(self, event):
 
@@ -51,10 +57,11 @@ class GameScreen(Screen):
         if event.type == self.GAIN_MONEY_ENEMY:
             self.enemy_tower.gain_money(10)
 
-        self.troup_button1.update(event)
-        self.troup_button2.update(event)
-        self.troup_button3.update(event)
-        self.troup_button4.update(event)
+        self.troup_button1.update(event, self.troups, NormalTroup)
+        # self.troup_button2.update(event)
+        # self.troup_button3.update(event)
+        # self.troup_button4.update(event)
+
 
     def check_collisions(self):
         pass
@@ -81,4 +88,7 @@ class GameScreen(Screen):
         self.troup_button2.draw(screen)
         self.troup_button3.draw(screen)
         self.troup_button4.draw(screen)
+
+        # Groups
+        self.troups.draw(screen)
 
