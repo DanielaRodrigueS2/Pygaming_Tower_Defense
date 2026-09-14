@@ -48,6 +48,8 @@ class GameScreen(Screen):
 
     def update(self):
         self.troups.update()
+        self.ally_tower.update()
+        self.enemy_tower.update()
 
     def handle_events(self, event):
 

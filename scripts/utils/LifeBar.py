@@ -17,7 +17,7 @@ class LifeBar(pg.sprite.Sprite):
         self.image = pg.Surface((size, 10))
         self.image.fill((0, 255, 0))
         self.rect = self.image.get_rect()
-        self.rect.center(x, self.y)
+        self.rect.center = (x, self.y)
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
