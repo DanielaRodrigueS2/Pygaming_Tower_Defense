@@ -1,4 +1,5 @@
 import pygame as pg
+from scripts.utils.LifeBar import LifeBar
 
 class NormalTroup(pg.sprite.Sprite):
     def __init__(self, x ,y ):
@@ -17,8 +18,11 @@ class NormalTroup(pg.sprite.Sprite):
 
         self.attack = False
 
+        self.lifeBar = LifeBar(24, self.x, self.y, self.life)
+
     def update(self):
         self.rect.x += self.speed
+        self.lifeBar.update(self.rect.x, self.life)
 
         if self.life <= 0:
             self.kill()
@@ -33,3 +37,4 @@ class NormalTroup(pg.sprite.Sprite):
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
+        self.lifeBar.draw(screen)
