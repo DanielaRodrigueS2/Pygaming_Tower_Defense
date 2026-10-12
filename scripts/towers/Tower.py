@@ -13,11 +13,13 @@ class Tower(pg.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (self.x, self.y) 
         self.money = 0
-        self.life = 500
-        self.lifeBar = LifeBar(70, self.x, self.y - 70, self.life)
+        self.max_life = 500
+        self.life = self.max_life
+        self.lifeBar = LifeBar(self)
 
     def update(self):
-        self.lifeBar.update(self.x, self.life)
+        self.lifeBar.update()
+        self.life -= 2
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)

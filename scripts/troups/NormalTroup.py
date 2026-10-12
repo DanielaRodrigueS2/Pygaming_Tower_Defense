@@ -11,18 +11,19 @@ class NormalTroup(pg.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center =  (self.x, self.y)
 
-        self.life = 100
+        self.max_life = 100
+        self.life = self.max_life
         self.speed = 2
 
         self.damage = 10
 
         self.attack = False
 
-        self.lifeBar = LifeBar(24, self.x, self.y, self.life)
+        self.lifeBar = LifeBar(self)
 
     def update(self):
         self.rect.x += self.speed
-        self.lifeBar.update(self.rect.x, self.life)
+        self.lifeBar.update()
 
         if self.life <= 0:
             self.kill()
