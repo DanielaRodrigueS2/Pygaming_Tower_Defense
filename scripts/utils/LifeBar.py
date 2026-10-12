@@ -32,10 +32,9 @@ class LifeBar(pg.sprite.Sprite):
 
         position_actual = self.rect.topleft
 
-        if health_width > 0:
+        if health_width >= 0:
             self.image = pg.transform.scale(self.image, (health_width, self.height))
             self.rect = self.image.get_rect(topleft=position_actual)
-            print('sapo')
         
 
     def draw(self, screen):
